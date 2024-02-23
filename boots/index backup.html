@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News List</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px;
+        }
+
+        li {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 24px;
+            margin: 10px;
+        }
+
+        p {
+            color: #666;
+            margin: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0066cc;
+            display: block;
+            padding: 10px;
+            background-color: #eee;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>News List</h1>
+    </header>
+    <form method="get" action="{% url 'index' %}">
+        <label for="publisher">Select Publisher:</label>
+        <select name="publisher" id="publisher">
+            <option value="all">All</option>
+            <option value="foreign">Foreign Publisher</option>
+            <option value="ukrainian">Ukrainian Publisher</option>
+        </select>
+        <input type="submit" value="Filter">
+    </form>
+
+    <ul>
+        {% for news in list %}
+            <li>
+                <h2>{{ news.title }}</h2>
+                <p>{{ news.source_name }} - <a href="{{ news.url }}">Read more</a></p>
+            </li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
