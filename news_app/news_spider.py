@@ -1,5 +1,6 @@
 import scrapy
 
+
 class Unian(scrapy.Spider):
     name = 'pravda'
     start_urls = [
@@ -27,8 +28,6 @@ class Unian(scrapy.Spider):
                     "source": "Уніан",
                     "source_country": "ukrainian",
                 }
-
-
                 counter += 1
                 if counter >= 5:
                     break
@@ -58,7 +57,6 @@ class Unian(scrapy.Spider):
                     "source": "Кореспондент",
                     "source_country": "ukrainian",
                 }
-
                 counter += 1
                 if counter >= 5:
                     break
@@ -72,7 +70,6 @@ class Unian(scrapy.Spider):
                     "source": "ТСН",
                     "source_country": "ukrainian",
                 }
-
                 counter += 1
                 if counter >= 5:
                     break
@@ -86,7 +83,6 @@ class Unian(scrapy.Spider):
                     "source": "Українська правда",
                     "source_country": "ukrainian",
                 }
-
                 counter += 1
                 if counter >= 5:
                     break
@@ -100,7 +96,6 @@ class Unian(scrapy.Spider):
                     "source": "BBC",
                     "source_country": "foreign",
                 }
-
                 counter += 1
                 if counter >= 5:
                     break
@@ -142,7 +137,6 @@ class Unian(scrapy.Spider):
                     "source": "EuroNews",
                     "source_country": "foreign",
                 }
-
                 counter += 1
                 if counter >= 5:
                     break
@@ -156,8 +150,6 @@ class Unian(scrapy.Spider):
                     "source": "NewYork Times",
                     "source_country": "foreign",
                 }
-                
                 counter += 1
                 if counter >= 5:
                     break
-        

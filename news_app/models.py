@@ -10,3 +10,11 @@ class News(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class ExchangeRates(models.Model):
+    title = models.CharField(max_length=255)
+    value = models.DecimalField(max_digits=10, decimal_places=4)
+
+    def __str__(self):
+        return self.title

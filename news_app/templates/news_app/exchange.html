@@ -14,18 +14,18 @@
             data-target="#navigation"> <span class="navbar-toggler-icon"></span>
           </button>
         </div>
-        <form method="get" action="{% url 'index' %}" class="filter-form order-lg-3 order-md-2 order-3 ml-auto">
-          <label for="publisher"><strong>Select Publisher:</strong></label>
-          <select name="publisher" id="publisher">
+        <form method="get" action="{% url 'exchange' %}" class="filter-form order-lg-3 order-md-2 order-3 ml-auto">
+          <label for="currency"><strong>Select Currency:</strong></label>
+          <select name="currency" id="currency">
               <option value="All">All</option>
-              <option value="Foreign">Foreign Publisher</option>
-              <option value="Ukrainian">Ukrainian Publisher</option>
+              <option value="Crypto">Cryptocurrency</option>
+              <option value="Fiat Currencies">Fiat Currency</option>
           </select>
           <input type="submit" value="Filter" style="background-color: #4CAF50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;">
           </form>
         <div class="collapse navbar-collapse text-center order-lg-2 order-4" id="navigation">
           <ul class="navbar-nav mx-auto mt-3 mt-lg-0">
-            <li class="nav-item"> <a class="nav-link" href="{% url 'exchange' %}">Exchange Rates</a>
+            <li class="nav-item"> <a class="nav-link" href="{% url 'index' %}">News</a>
             </li>
             <li class="nav-item"> <a class="nav-link" href="{% url 'about' %}">About</a>
             </li>
@@ -43,27 +43,31 @@
       <div class="container">
         <div class="row no-gutters-lg">
           <div class="col-12">
-            <h2 class="section-title">Latest News</h2>
+            <h2 class="section-title">Currency Rate</h2>
           </div>
-          <div class="col-lg-12 mb-5 mb-lg-0">
+          <div class="col-lg-12 mb-5 mb-lg-0" style="text-align: center;">
             <div class="row">
               <div class="col-12 mb-4">
                 <article class="card article-card">
                   <div class="card-body px-0 pb-1">
-                      <h2 class="h1"><a class="post-title" href="{{ list.0.url }}" target="_blank">{{ list.0.title }}</a></h2>
-                    <div class="content"> <a class="read-more-btn" href="{{ list.0.url }}" target="_blank">Read Full Article</a>
+                      <h2 class="h1" style="margin-bottom: 50px">USD Converter</h2>
+                      <form method="post" class="filter-form order-lg-3 order-md-2 order-3 ml-auto" style="margin-bottom: 20px">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <div class="content"><p><strong><h2>{{ convert }}</h2></strong></p>
+                        <button type="submit" style="background-color: #4CAF50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;">Convert</button>
+
                     </div>
+                      </form>
                   </div>
                 </article>
               </div>
-              {% for news in list|slice:"1:" %}
+              {% for currency in rate_list %}
                 <div class="col-md-6 mb-4">
                   <article class="card article-card article-card-sm h-95">
                     <div class="card-body px-0 pb-0">
-                      <h2><a class="post-title" href="{{ news.url }}" target="_blank">{{ news.title }}</a></h2>
-                      <p>{{ news.source_name}}</p>
-                      <div class="content"> <a class="read-more-btn" href="{{ news.url }}" target="_blank">Read Full Article</a>
-                      </div>
+                      <h2>{{ currency.title }}</h2>
+                      <p>{{ currency.value}}</p>
                     </div>
                   </article>
                 </div>

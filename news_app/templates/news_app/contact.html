@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Contact{% endblock %}
+{% block header %}
+  <header class="navigation">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light px-0">
+        <a class="navbar-brand order-1 py-0" href="{% url 'index' %}">
+          <h1><strong>TailwindNews</strong></h1>
+        </a>
+        <div class="navbar-actions order-3 ml-0 ml-md-4">
+          <button aria-label="navbar toggler" class="navbar-toggler border-0" type="button" data-toggle="collapse"
+            data-target="#navigation"> <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse text-center order-lg-2 order-4" id="navigation">
+          <ul class="navbar-nav mx-auto mt-3 mt-lg-0">
+            <li class="nav-item"> <a class="nav-link" href="{% url 'index' %}">News</a>
+            </li>
+            <li class="nav-item"> <a class="nav-link" href="{% url 'exchange' %}">Exchange Rates</a>
+            </li>
+            <li class="nav-item"> <a class="nav-link" href="{% url 'about' %}">About</a>
+            </li>
+            <li class="nav-item"> <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+{% endblock %}
+{% block content %}
+	<main>
+		<section class="section">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="breadcrumbs mb-4"> <a href="{% url 'index' %}">Main Page</a>
+							<span class="mx-1">/</span>  <a href="#!">Contact</a>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="pr-0 pr-lg-4">
+							<div class="content">Please write your comments, feedback, or suggestions to our email. Thanks to your feedback, we are constantly evolving :)
+								<div class="mt-5">
+									<p class="h3 mb-3 font-weight-normal"><a class="text-dark" href="mailto:helloWorld@example.com">helloWorld@example.com</a>
+									</p>
+									<p class="mb-3"><a class="text-dark" href="tel:&#43;211234565523">&#43;211234565523</a>
+									</p>
+									<p class="mb-2">9567 Turner Trace Apt. BC C3G8A4</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6 mt-4 mt-lg-0">
+						<form method="POST" action="#!" class="row">
+							{% csrf_token %}
+							<div class="col-md-6">
+								<input type="text" class="form-control mb-4" placeholder="Name" name="name" id="name">
+							</div>
+							<div class="col-md-6">
+								<input type="email" class="form-control mb-4" placeholder="Email" name="email" id="email">
+							</div>
+							<div class="col-12">
+								<input type="text" class="form-control mb-4" placeholder="Subject" name="subject" id="subject">
+							</div>
+							<div class="col-12">
+								<textarea name="message" id="message" class="form-control mb-4" placeholder="Type You Message Here" rows="5" style="resize: none;"></textarea>
+							</div>
+							<div class="col-12">
+								<button class="btn btn-outline-primary" type="submit">Send Message</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+{% endblock %}

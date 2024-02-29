@@ -1,0 +1,66 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
+	<meta charset="utf-8">
+	<title>{% block title %}{% endblock %}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+	<meta name="description" content="This is meta description">
+	<meta name="author" content="casual-user">
+
+  <!-- theme meta -->
+  <meta name="theme-name" content="news-site" />
+
+	<!-- # Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Neuton:wght@700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+	<!-- # CSS Plugins -->
+	<link rel="stylesheet" href="{% static 'plugins/bootstrap/bootstrap.min.css' %}">
+
+	<!-- # Main Style Sheet -->
+	<link rel="stylesheet" href="{% static 'news_app/css/style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+<header>{% block header %}{% endblock %}</header>
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<footer class="bg-dark mt-5">
+  <div class="container section">
+    <div class="row">
+      <div class="col-lg-10 mx-auto text-center">
+        <a class="d-inline-block mb-4 pb-2" href="{% url 'index' %}">
+          <strong>TailwindNews</strong>
+        </a>
+        <ul class="p-0 d-flex navbar-footer mb-0 list-unstyled">
+          <li class="nav-item my-0"> <a class="nav-link" href="{% url 'about' %}">About</a></li>
+          <li class="nav-item my-0"> <a class="nav-link" href="{% url 'exchange' %}">Exchange Rates</a></li>
+          <li class="nav-item my-0"> <a class="nav-link" href="{% url 'privacy_policy' %}">Privacy Policy</a></li>
+          <li class="nav-item my-0"> <a class="nav-link" href="{% url 'terms_conditions' %}">Terms Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="copyright bg-dark content">Developed By <a href="https://www.linkedin.com/in/vdybovyi" target="_blank">linkedin.com/in/vdybovyi</a></div>
+</footer>
+
+
+<!-- # JS Plugins -->
+<script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'plugins/bootstrap/bootstrap.min.js' %}"></script>
+
+<!-- Main Script -->
+<script src="{% static 'news_app/js/script.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

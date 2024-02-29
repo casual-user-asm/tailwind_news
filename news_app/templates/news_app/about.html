@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}About{% endblock %}
+{% block header %}
+  <header class="navigation">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light px-0">
+        <a class="navbar-brand order-1 py-0" href="{% url 'index' %}">
+          <h1><strong>TailwindNews</strong></h1>
+        </a>
+        <div class="navbar-actions order-3 ml-0 ml-md-4">
+          <button aria-label="navbar toggler" class="navbar-toggler border-0" type="button" data-toggle="collapse"
+            data-target="#navigation"> <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse text-center order-lg-2 order-4" id="navigation">
+          <ul class="navbar-nav mx-auto mt-3 mt-lg-0">
+            <li class="nav-item"> <a class="nav-link" href="{% url 'exchange' %}">Exchange Rates</a>
+            </li>
+            <li class="nav-item"> <a class="nav-link" href="{% url 'about' %}">About</a>
+            </li>
+            <li class="nav-item"> <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+{% endblock %}
+{% block content %}
+  <main>
+      <section class="section">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-8 ">
+                      <div class="mb-4"> <a class="post-title" href="{% url 'index' %}"><strong>Back</strong></a>
+                      </div>
+                  </div>
+                  <div class="col-lg-8 mx-auto mb-5 mb-lg-0">
+                      <h1 class="mb-4">Information About TailwindNews</h1>
+                      <div class="content">
+                        <p>The story of the news website, TailwindNews, is a journey from a simple idea to a site that provides fresh and relevant information.</p>
+                          <blockquote>
+                              <p>Don't waste time browsing multiple news sources. Now, all the hottest news are in one place.</p>
+                          </blockquote>
+                          <p>TailwindNews is not just news; these are stories that take us beyond the ordinary. Join us on this exciting journey, where every day brings something new and incredible.
+                            <br><br>Together with you in the world of news,<br>The TailwindNews Team<br><br><br><b>P.S: If you want a specific news source to be added to the website, let us know :)</b></p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+  </main>
+{% endblock %}
