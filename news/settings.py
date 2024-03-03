@@ -56,7 +56,7 @@ CELERY_BEAT_SCHEDULE = {
         'schedule': crontab(hour='12', minute='0'),
     },
     'run_scrapy_spider_task_6pm': {
-        'task': 'news_app.tasks.take_rates',
+        'task': 'news_app.tasks.run_scrapy_spider',
         'schedule': crontab(hour='18', minute='0'),
     },
     'run_exchanges_api_8am': {
